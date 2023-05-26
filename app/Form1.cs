@@ -12,6 +12,7 @@ namespace app
             HandleConectDB();
             HandleGetKhoa();
         }
+
         private MongoClient client;
         private IMongoDatabase database;
 
@@ -87,15 +88,20 @@ namespace app
         }
 
 
-        private void BtnSearch_Click(object sender, EventArgs e)
+        private async void BtnSearch_Click(object sender, EventArgs e)
         {
-            string lop = BoxLop.SelectedItem.ToString();
-            currentLop.Text = lop;
-            handleGetHocSinh(lop);
+                string lop = BoxLop.SelectedItem.ToString();
+                currentLop.Text = lop;
+                handleGetHocSinh(lop);
         }
 
         private void BtnClear_Click(object sender, EventArgs e)
         {
+            BoxKhoa.Text = "";
+            BoxKhoa.Items.Clear();
+            BoxLop.Text = "";
+            BoxLop.Items.Clear();
+            BtnSearch.Enabled = false;
         }
 
         private void BoxKhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,7 +129,40 @@ namespace app
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            listView1.Columns[0].Width = (int)(listView1.Width * 0.25);
+            listView1.Columns[1].Width = (int)(listView1.Width * 0.25);
+            listView1.Columns[2].Width = (int)(listView1.Width * 0.25);
+            listView1.Columns[3].Width = (int)(listView1.Width * 0.25);
+        }
 
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                string mssv = listView1.SelectedItems[0].SubItems[0].Text;
+                string ten = listView1.SelectedItems[0].SubItems[1].Text;
+                string ngaysinh = listView1.SelectedItems[0].SubItems[2].Text;
+                string diachi = listView1.SelectedItems[0].SubItems[3].Text;
+
+                HocSinh data = new HocSinh() { 
+                    ten = ten,
+                    mssv = mssv, 
+                    diachi = diachi,
+                    khoa = BoxKhoa.SelectedItem.ToString(),
+                    lop = BoxLop.SelectedItem.ToString(),
+                    ngaysinh = ngaysinh
+                };
+
+                SuaThongTin form = new SuaThongTin(data);
+                form.Show();
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            ThemSinhVien2 form = new ThemSinhVien2();
+            this.Hide();
+            form.Show();
         }
     }
 }

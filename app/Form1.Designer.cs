@@ -43,6 +43,7 @@
             ColNgaySinh = new ColumnHeader();
             ColDiaChi = new ColumnHeader();
             currentLop = new Label();
+            btnAdd = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -150,11 +151,13 @@
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
             listView1.Location = new Point(479, 105);
+            listView1.MultiSelect = false;
             listView1.Name = "listView1";
-            listView1.Size = new Size(772, 375);
+            listView1.Size = new Size(772, 384);
             listView1.TabIndex = 4;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
+            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
             // 
             // ColMSSV
             // 
@@ -182,11 +185,27 @@
             currentLop.Size = new Size(0, 28);
             currentLop.TabIndex = 5;
             // 
+            // btnAdd
+            // 
+            btnAdd.BackColor = Color.LimeGreen;
+            btnAdd.Cursor = Cursors.Hand;
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAdd.ForeColor = SystemColors.ButtonFace;
+            btnAdd.Location = new Point(1149, 59);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(102, 35);
+            btnAdd.TabIndex = 6;
+            btnAdd.Text = "+ Thêm ";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1263, 539);
+            Controls.Add(btnAdd);
             Controls.Add(currentLop);
             Controls.Add(listView1);
             Controls.Add(Title);
@@ -194,6 +213,7 @@
             Controls.Add(FTitle);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -217,5 +237,6 @@
         private ComboBox BoxLop;
         private ComboBox BoxKhoa;
         private Label currentLop;
+        private Button btnAdd;
     }
 }

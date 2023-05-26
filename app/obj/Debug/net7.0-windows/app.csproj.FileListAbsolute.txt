@@ -16,7 +16,6 @@ E:\C#\app\app\obj\Debug\net7.0-windows\app.pdb
 E:\C#\app\app\obj\Debug\net7.0-windows\app.genruntimeconfig.cache
 E:\C#\app\app\obj\Debug\net7.0-windows\ref\app.dll
 E:\C#\app\app\obj\Debug\net7.0-windows\app.Properties.Resources.resources
-E:\C#\app\app\obj\Debug\net7.0-windows\app.Form2.resources
 E:\C#\app\app\bin\Debug\net7.0-windows\AWSSDK.Core.dll
 E:\C#\app\app\bin\Debug\net7.0-windows\AWSSDK.SecurityToken.dll
 E:\C#\app\app\bin\Debug\net7.0-windows\DnsClient.dll
@@ -32,3 +31,5 @@ E:\C#\app\app\bin\Debug\net7.0-windows\runtimes\linux\native\libmongocrypt.so
 E:\C#\app\app\bin\Debug\net7.0-windows\runtimes\osx\native\libmongocrypt.dylib
 E:\C#\app\app\bin\Debug\net7.0-windows\runtimes\win\native\mongocrypt.dll
 E:\C#\app\app\obj\Debug\net7.0-windows\app.csproj.CopyComplete
+E:\C#\app\app\obj\Debug\net7.0-windows\app.ThemSinhVien2.resources
+E:\C#\app\app\obj\Debug\net7.0-windows\app.SuaThongTin.resources
