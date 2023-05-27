@@ -44,6 +44,7 @@
             ColDiaChi = new ColumnHeader();
             currentLop = new Label();
             btnAdd = new Button();
+            BtnReport = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -147,6 +148,7 @@
             // 
             // listView1
             // 
+            listView1.BorderStyle = BorderStyle.FixedSingle;
             listView1.Columns.AddRange(new ColumnHeader[] { ColMSSV, ColHoTen, ColNgaySinh, ColDiaChi });
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
@@ -200,11 +202,27 @@
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
+            // BtnReport
+            // 
+            BtnReport.BackColor = Color.DeepSkyBlue;
+            BtnReport.Enabled = false;
+            BtnReport.FlatStyle = FlatStyle.Flat;
+            BtnReport.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnReport.ForeColor = SystemColors.ButtonHighlight;
+            BtnReport.Location = new Point(1111, 506);
+            BtnReport.Name = "BtnReport";
+            BtnReport.Size = new Size(140, 47);
+            BtnReport.TabIndex = 7;
+            BtnReport.Text = "Xuất danh sách";
+            BtnReport.UseVisualStyleBackColor = false;
+            BtnReport.Click += btnReport_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1263, 539);
+            ClientSize = new Size(1263, 565);
+            Controls.Add(BtnReport);
             Controls.Add(btnAdd);
             Controls.Add(currentLop);
             Controls.Add(listView1);
@@ -238,5 +256,6 @@
         private ComboBox BoxKhoa;
         private Label currentLop;
         private Button btnAdd;
+        private Button BtnReport;
     }
 }

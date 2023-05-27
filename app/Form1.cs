@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using Microsoft.VisualBasic.Logging;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Collections.Generic;
 
@@ -84,15 +85,17 @@ namespace app
                 BoxLop.Text = "";
                 BoxLop.Items.Clear();
                 BtnSearch.Enabled = false;
+                BtnReport.Enabled = false;
             }
         }
 
 
         private async void BtnSearch_Click(object sender, EventArgs e)
         {
-                string lop = BoxLop.SelectedItem.ToString();
-                currentLop.Text = lop;
-                handleGetHocSinh(lop);
+            string lop = BoxLop.SelectedItem.ToString();
+            currentLop.Text = lop;
+            BtnReport.Enabled = true;
+            handleGetHocSinh(lop);
         }
 
         private void BtnClear_Click(object sender, EventArgs e)
@@ -102,6 +105,7 @@ namespace app
             BoxLop.Text = "";
             BoxLop.Items.Clear();
             BtnSearch.Enabled = false;
+            BtnReport.Enabled = false;
         }
 
         private void BoxKhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -124,6 +128,7 @@ namespace app
             else
             {
                 BtnSearch.Enabled = false;
+                BtnReport.Enabled = false;
             }
         }
 
@@ -144,9 +149,10 @@ namespace app
                 string ngaysinh = listView1.SelectedItems[0].SubItems[2].Text;
                 string diachi = listView1.SelectedItems[0].SubItems[3].Text;
 
-                HocSinh data = new HocSinh() { 
+                HocSinh data = new HocSinh()
+                {
                     ten = ten,
-                    mssv = mssv, 
+                    mssv = mssv,
                     diachi = diachi,
                     khoa = BoxKhoa.SelectedItem.ToString(),
                     lop = BoxLop.SelectedItem.ToString(),
@@ -163,6 +169,17 @@ namespace app
             ThemSinhVien2 form = new ThemSinhVien2();
             this.Hide();
             form.Show();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            string khoa = BoxKhoa.SelectedItem.ToString();
+            string lop = BoxLop.SelectedItem.ToString();
+            string ngaythangnam = "Ngày " + DateTime.Now.Day.ToString() +
+                                    " tháng " + DateTime.Now.Month.ToString() +
+                                    " năm " + DateTime.Now.Year.ToString();
+            Report reportForm = new Report(khoa, lop, ngaythangnam);
+            reportForm.Show();
         }
     }
 }
