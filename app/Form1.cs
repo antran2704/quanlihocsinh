@@ -101,7 +101,6 @@ namespace app
         private void BtnClear_Click(object sender, EventArgs e)
         {
             BoxKhoa.Text = "";
-            BoxKhoa.Items.Clear();
             BoxLop.Text = "";
             BoxLop.Items.Clear();
             BtnSearch.Enabled = false;
