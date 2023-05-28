@@ -100,49 +100,43 @@ namespace app
         {
             ComboBox cb = sender as ComboBox;
             string khoa = cb.SelectedItem.ToString();
+            BoxLop.Items.Clear();
+            BoxLop.Text = "";
 
             handleGetLop(khoa);
         }
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            if (BoxKhoa.SelectedItem != null ||
-                BoxLop.SelectedItem != null ||
-                txtHoTen.Text != "" ||
+            if (BoxKhoa.SelectedItem != null &&
+                BoxLop.SelectedItem != null &&
+                BoxKhoa.Text != "" &&
+                BoxLop.Text != "" &&
+                txtHoTen.Text != "" &&
                 txtDiaChi.Text != ""
                 )
             {
                 string khoa = BoxKhoa.SelectedItem.ToString();
                 string lop = BoxLop.SelectedItem.ToString();
                 string ten = txtHoTen.Text;
-                string mssv = "text";
-                string ngaySinh = txtDate.Value.ToShortDateString();
+                string ngaySinh = txtDate.Value.ToString();
                 string diaChi = txtDiaChi.Text;
 
-                //check exit MSSV
-                bool isExit = handleCheckMSSV(mssv);
-
-                if (!isExit)
-                {
+                 var collection = database.GetCollection<BsonDocument>("HocSinhs");
+                 var documents = collection.AsQueryable().ToList();
                     HocSinh test = new HocSinh()
                     {
                         ten = ten,
                         lop = lop,
                         diachi = diaChi,
                         khoa = khoa,
-                        mssv = mssv,
+                        mssv = (documents.Count + 1).ToString(),
                         ngaysinh = ngaySinh
                     };
-                    var collection = database.GetCollection<BsonDocument>("HocSinhs");
-                    await collection.InsertOneAsync(test.ToBsonDocument());
+                  await collection.InsertOneAsync(test.ToBsonDocument());
+                  handleClearAllField();
+                  MessageBox.Show("Thêm thành công", "Thông báo");
                 }
-                else
-                {
-                    MessageBox.Show("MSSV đã tồn tại", "Thông báo");
-                }
-                handleClearAllField();
-                MessageBox.Show("Thêm thành công", "Thông báo");
-            }
             else
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo");

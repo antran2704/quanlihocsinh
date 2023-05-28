@@ -162,6 +162,7 @@
             dataGridView1.ColumnHeadersHeight = 29;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColStt, ColMssv, ColTen, ColNgaySinh, ColDiaChi });
+            dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.Location = new Point(12, 342);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";

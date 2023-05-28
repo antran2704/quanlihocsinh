@@ -45,6 +45,7 @@
             currentLop = new Label();
             btnAdd = new Button();
             BtnReport = new Button();
+            btnDangXuat = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -217,11 +218,26 @@
             BtnReport.UseVisualStyleBackColor = false;
             BtnReport.Click += btnReport_Click;
             // 
+            // btnDangXuat
+            // 
+            btnDangXuat.BackColor = SystemColors.ActiveCaption;
+            btnDangXuat.FlatStyle = FlatStyle.Flat;
+            btnDangXuat.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btnDangXuat.ForeColor = SystemColors.ButtonFace;
+            btnDangXuat.Location = new Point(12, 515);
+            btnDangXuat.Name = "btnDangXuat";
+            btnDangXuat.Size = new Size(116, 38);
+            btnDangXuat.TabIndex = 8;
+            btnDangXuat.Text = "Đăng xuất";
+            btnDangXuat.UseVisualStyleBackColor = false;
+            btnDangXuat.Click += btnDangXuat_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1263, 565);
+            Controls.Add(btnDangXuat);
             Controls.Add(BtnReport);
             Controls.Add(btnAdd);
             Controls.Add(currentLop);
@@ -230,7 +246,7 @@
             Controls.Add(panel1);
             Controls.Add(FTitle);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Đăng xuất";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -257,5 +273,6 @@
         private Label currentLop;
         private Button btnAdd;
         private Button BtnReport;
+        private Button btnDangXuat;
     }
 }

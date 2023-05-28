@@ -51,7 +51,7 @@ namespace app
                 dataGridView1.Rows[index].Cells[0].Value = stt;
                 dataGridView1.Rows[index].Cells[1].Value = document["mssv"];
                 dataGridView1.Rows[index].Cells[2].Value = document["ten"];
-                dataGridView1.Rows[index].Cells[3].Value = document["ngaysinh"];
+                dataGridView1.Rows[index].Cells[3].Value = DateTime.Parse(document["ngaysinh"].ToString()).ToShortDateString();
                 dataGridView1.Rows[index].Cells[4].Value = document["diachi"];
 
                 stt++;

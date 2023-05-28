@@ -1,7 +1,5 @@
-﻿using Microsoft.VisualBasic.Logging;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Driver;
-using System.Collections.Generic;
 
 namespace app
 {
@@ -57,7 +55,7 @@ namespace app
                 { Text = document["ten"].ToString() }
                 );
                 item.SubItems.Add(new ListViewItem.ListViewSubItem()
-                { Text = document["ngaysinh"].ToString() }
+                { Text = DateTime.Parse(document["ngaysinh"].ToString()).ToShortDateString() }
                 );
                 item.SubItems.Add(new ListViewItem.ListViewSubItem()
                 { Text = document["diachi"].ToString() }
@@ -111,7 +109,8 @@ namespace app
         {
             ComboBox cb = sender as ComboBox;
             string khoa = cb.SelectedItem.ToString();
-
+            BoxLop.Text = "";
+            BoxLop.Items.Clear();
             handleGetLop(khoa);
         }
 
@@ -179,6 +178,13 @@ namespace app
                                     " năm " + DateTime.Now.Year.ToString();
             Report reportForm = new Report(khoa, lop, ngaythangnam);
             reportForm.Show();
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            DangNhap form = new DangNhap();
+            form.Show();
+            this.Close();
         }
     }
 }

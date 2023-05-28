@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,7 @@ namespace app
             txtTen.Text = data.ten;
             txtDiaChi.Text = data.diachi;
             txtMssv.Text = data.mssv;
+            txtNgaySinh.Value = DateTime.Parse(data.ngaysinh);
         }
 
         private MongoClient client;
@@ -117,7 +119,7 @@ namespace app
             string diachi = txtDiaChi.Text;
             string khoa = BoxKhoa.SelectedItem.ToString();
             string lop = BoxLop.SelectedItem.ToString();
-            string ngaysinh = txtNgaySinh.Value.ToShortDateString();
+            string ngaysinh = txtNgaySinh.Value.ToString();
             bool isExit;
 
             if (mssv != initInforHS.mssv)

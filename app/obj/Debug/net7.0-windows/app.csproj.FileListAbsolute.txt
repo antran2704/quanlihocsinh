@@ -34,3 +34,4 @@ E:\C#\app\app\obj\Debug\net7.0-windows\app.csproj.CopyComplete
 E:\C#\app\app\obj\Debug\net7.0-windows\app.ThemSinhVien2.resources
 E:\C#\app\app\obj\Debug\net7.0-windows\app.SuaThongTin.resources
 E:\C#\app\app\obj\Debug\net7.0-windows\app.Report.resources
+E:\C#\app\app\obj\Debug\net7.0-windows\app.DangNhap.resources
